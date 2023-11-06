@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:mum_health/app/app.router.dart';
 import 'package:mum_health/ui/common/app_colors.dart';
 import 'package:stacked_services/stacked_services.dart';
+import 'generated/l10n.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -11,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: Theme.of(context).copyWith(
-        primaryColor: kcBackgroundColor,
+        primaryColor: kcPrimaryColor,
         focusColor: kcPrimaryColor,
         textTheme: Theme.of(context).textTheme.apply(
           bodyColor: Colors.black,
@@ -23,6 +25,14 @@ class MyApp extends StatelessWidget {
       navigatorObservers: [
         StackedService.routeObserver,
       ],
+      localizationsDelegates: const [
+        S.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: S.delegate.supportedLocales,
+      locale: const Locale('en'),
     );
   }
 }

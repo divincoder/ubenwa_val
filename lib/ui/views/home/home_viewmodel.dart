@@ -21,8 +21,8 @@ class HomeViewModel extends BaseViewModel {
   void showDialog() {
     _dialogService.showCustomDialog(
       variant: DialogType.infoAlert,
-      title: 'Stacked Rocks!',
-      description: 'Give stacked $_counter stars on Github',
+      title: 'Hello Mum!',
+      description: 'How is your baby doing today?',
     );
   }
 
