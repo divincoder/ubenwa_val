@@ -37,6 +37,7 @@ dependencies:
   
   stacked: ^3.2.7
   stacked_services: ^1.0.0
+  flutter_flavorizr: ^2.2.1
 
 dev_dependencies:
   flutter_test:

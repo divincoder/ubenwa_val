@@ -1,0 +1,17 @@
+flavors:
+  prod:
+    app:
+      name: "Mum Health"
+
+    android:
+      applicationId: "com.divincoder.mumhealth"
+    ios:
+      bundleId: "com.divincoder.mumhealth"
+  stage:
+    app:
+      name: "Mum Health Stage"
+
+    android:
+      applicationId: "com.divincoder.mumhealth.stage"
+    ios:
+      bundleId: "com.divincoder.mumhealth.stage"
