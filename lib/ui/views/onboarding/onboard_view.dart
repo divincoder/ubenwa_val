@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:mum_health/gen/assets.gen.dart';
 import 'package:mum_health/generated/l10n.dart';
@@ -13,47 +15,74 @@ class OnboardView extends ViewModelWidget<OnboardingViewModel> {
   Widget build(BuildContext context, OnboardingViewModel viewModel) {
     final size = MediaQuery.of(context).size;
     final padding = MediaQuery.of(context).padding;
+    final pageIndex = viewModel.currentPage;
+    final viewOffset = viewModel.viewOffset;
+
+    double angle = 2 * pi / 4; // Angle between baby positions
+    double radius = 150.0; // Distance of babies from the mother picture
 
     return Container(
       color: Colors.white, // Change color or add background image as needed
       child: Stack(
         children: [
-          // for (int i = 0; i < 4; i++)
-          // Positioned(
-          //   top: (i == 0 || i == 1) ? 90 : null,
-          //   bottom: (i == 2 || i == 3) ? 90 : 180,
-          //   left: (i == 1 || i == 3) ? 90 : 180,
-          //   right: (i == 0 || i == 2) ? 90 : 180,
-          //   child: AnimatedAlign(
-          //   duration: const Duration(milliseconds: 500),
-          //     alignment: getBabyAlignment(i, viewModel.currentPage),
-          //     child: Image.asset(
-          //       _getBabyImageForIndex(i),
-          //     ),
-          //   ),
-          // ),
-
           Positioned.fill(
-              top: padding.top + 30,
+              top: padding.top,
               left: 30,
               right: 30,
               child: Column(
                 children: [
                   Expanded(
-                    child: Center(
-                      child: SizedBox(
-                          height: 200,
-                          width: 200,
-                          child: Image.asset(
-                              _getMotherImageForIndex(viewModel.currentPage))),
+                    child: Stack(
+                      children: [
+                        Center(
+                          child: SizedBox(
+                              height: 200,
+                              width: 200,
+                              child: Image.asset(_getMotherImageForIndex(
+                                  viewModel.currentPage))),
+                        ),
+                        for (int i = 0; i < 4; i++)
+                          Center(
+                            child: Positioned(
+                              top: (pageIndex == 0 || pageIndex == 1)
+                                  ? 20
+                                  : null,
+                              bottom: (pageIndex == 2 || pageIndex == 3)
+                                  ? 20
+                                  : null,
+                              left: (pageIndex == 1 || pageIndex == 3)
+                                  ? 20
+                                  : null,
+                              right: (pageIndex == 0 || pageIndex == 2)
+                                  ? 20
+                                  : null,
+                              child: TweenAnimationBuilder<double>(
+                                tween: Tween(begin: 0.0, end: (2 * pi * i) / 4),
+                                duration: const Duration(milliseconds: 500),
+                                builder: (context, value, child) {
+                                  return Transform.translate(
+                                    offset: getBabyOffset(value, 100.0),
+                                    // 100.0 is the radius
+                                    child: Image.asset(
+                                      _getBabyImageForIndex(i),
+                                      width: 40,
+                                      height: 40,
+                                    ),
+                                  );
+                                },
+                              ),
+                            ),
+                          ),
+                      ],
                     ),
                   ),
-                  Expanded(child: OnboardItemView(viewModel.currentPage, onGetStarted: () {
-
+                  Expanded(
+                      child: OnboardItemView(viewModel.currentPage,
+                          onGetStarted: () {
+                    viewModel.gotoHomeView();
                   }))
                 ],
               )),
-
           Positioned(
               bottom: padding.bottom + 20,
               left: 24,
@@ -109,18 +138,11 @@ class OnboardView extends ViewModelWidget<OnboardingViewModel> {
     );
   }
 
-  Alignment getBabyAlignment(int index, int currentPage) {
-    double angle = (2 * currentPage * 3.1416 / 4); // Converted to radians
-    double babyDistance = 90.0; // Distance of babies from the mother picture
+  Offset getBabyOffset(double angle, double radius) {
+    double x = radius * cos(angle);
+    double y = radius * sin(angle);
 
-    // Adjust positions of babies based on the angle and distance
-    double x = 90 * (index % 2 == 0 ? 1 : -1) * (index < 2 ? 1 : -1);
-    double y = 90 * (index < 2 ? 1 : -1);
-
-    double cos = x * angle.abs() - y * angle.abs();
-    double sin = x * angle.abs() + y * angle.abs();
-
-    return Alignment(cos, sin);
+    return Offset(x, y);
   }
 
   String _getBabyImageForIndex(int index) {

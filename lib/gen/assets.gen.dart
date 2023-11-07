@@ -14,6 +14,10 @@ import 'package:flutter/services.dart';
 class $AssetsPngGen {
   const $AssetsPngGen();
 
+  /// File path: assets/png/baby_bottle.png
+  AssetGenImage get babyBottle =>
+      const AssetGenImage('assets/png/baby_bottle.png');
+
   /// File path: assets/png/baby_four.png
   AssetGenImage get babyFour => const AssetGenImage('assets/png/baby_four.png');
 
@@ -39,8 +43,17 @@ class $AssetsPngGen {
   /// File path: assets/png/mum_two.png
   AssetGenImage get mumTwo => const AssetGenImage('assets/png/mum_two.png');
 
+  /// File path: assets/png/water_drop.png
+  AssetGenImage get waterDrop =>
+      const AssetGenImage('assets/png/water_drop.png');
+
+  /// File path: assets/png/water_pool.png
+  AssetGenImage get waterPool =>
+      const AssetGenImage('assets/png/water_pool.png');
+
   /// List of all assets
   List<AssetGenImage> get values => [
+        babyBottle,
         babyFour,
         babyOne,
         babyThree,
@@ -48,7 +61,9 @@ class $AssetsPngGen {
         mumFour,
         mumOne,
         mumThree,
-        mumTwo
+        mumTwo,
+        waterDrop,
+        waterPool
       ];
 }
 

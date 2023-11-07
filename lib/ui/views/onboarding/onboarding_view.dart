@@ -14,6 +14,7 @@ class OnboardingView extends StackedView<OnboardingViewModel> {
         controller: viewModel.pageController,
         onPageChanged: (int page) {
           viewModel.currentPage = page;
+          viewModel.viewOffset = viewModel.pageController.offset;
         },
         children: const [
           OnboardView(),
