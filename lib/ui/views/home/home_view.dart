@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:mum_health/gen/assets.gen.dart';
+import 'package:mum_health/generated/l10n.dart';
 import 'package:stacked/stacked.dart';
 import 'package:mum_health/ui/common/app_colors.dart';
 import 'package:mum_health/ui/common/ui_helpers.dart';
 import 'home_viewmodel.dart';
+import 'widgets/todays_overview_widget.dart';
 
 class HomeView extends StackedView<HomeViewModel> {
   const HomeView({Key? key}) : super(key: key);
@@ -15,9 +18,45 @@ class HomeView extends StackedView<HomeViewModel> {
   ) {
     return Scaffold(
       body: SafeArea(
-        child: Container(),
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.symmetric(horizontal: 24),
+          child: Column(
+            children: [
+              _appBar(),
+              const SizedBox(height: 20),
+              const TodayOverviewContainer(),
+              const SizedBox(height: 20),
+            ],
+          ),
+        ),
       ),
     );
+  }
+
+  //All this can be custom widgets that can be customized and reused. Same applies to other widgets in the app that has universal usage
+  _appBar() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 0),
+      child: Row(
+        children: [
+          GestureDetector(
+              onTap: () {}, child: Assets.svg.arrowLeft.svg()),
+          Expanded(
+              child: Align(
+            alignment: Alignment.center,
+            child: Text(S.current.cryRecords,
+                style:
+                    const TextStyle(fontWeight: FontWeight.w600, fontSize: 18)),
+          )),
+          IconButton(
+              onPressed: () {}, icon: Assets.svg.notificationOutline.svg()),
+        ],
+      ),
+    );
+  }
+
+  _todayOverviewContainer() {
+
   }
 
   @override

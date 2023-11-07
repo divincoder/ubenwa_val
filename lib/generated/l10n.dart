@@ -220,23 +220,23 @@ class S {
     );
   }
 
-  /// `{0} better than yesterday`
-  String get betterThanYesterday {
+  /// `{value} better than yesterday`
+  String betterThanYesterday(Object value) {
     return Intl.message(
-      '{0} better than yesterday',
+      '$value better than yesterday',
       name: 'betterThanYesterday',
       desc: '',
-      args: [],
+      args: [value],
     );
   }
 
-  /// `{0} worst than yesterday`
-  String get worstThanYesterday {
+  /// `{value} worst than yesterday`
+  String worstThanYesterday(Object value) {
     return Intl.message(
-      '{0} worst than yesterday',
+      '$value worst than yesterday',
       name: 'worstThanYesterday',
       desc: '',
-      args: [],
+      args: [value],
     );
   }
 

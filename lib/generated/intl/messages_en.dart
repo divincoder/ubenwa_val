@@ -20,10 +20,13 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
+  static String m0(value) => "${value} better than yesterday";
+
+  static String m1(value) => "${value} worst than yesterday";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "betterThanYesterday":
-            MessageLookupByLibrary.simpleMessage("{0} better than yesterday"),
+        "betterThanYesterday": m0,
         "cryRecords": MessageLookupByLibrary.simpleMessage("Cry Records"),
         "cumulativeCryDuration":
             MessageLookupByLibrary.simpleMessage("Cumulative \nCry Duration"),
@@ -62,7 +65,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "showMeHow": MessageLookupByLibrary.simpleMessage("Show me How"),
         "todaysOverview":
             MessageLookupByLibrary.simpleMessage("Today\'s Overview"),
-        "worstThanYesterday":
-            MessageLookupByLibrary.simpleMessage("{0} worst than yesterday")
+        "worstThanYesterday": m1
       };
 }

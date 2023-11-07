@@ -14,6 +14,9 @@ import 'package:flutter/services.dart';
 class $AssetsPngGen {
   const $AssetsPngGen();
 
+  /// File path: assets/png/baby.png
+  AssetGenImage get baby => const AssetGenImage('assets/png/baby.png');
+
   /// File path: assets/png/baby_bottle.png
   AssetGenImage get babyBottle =>
       const AssetGenImage('assets/png/baby_bottle.png');
@@ -53,6 +56,7 @@ class $AssetsPngGen {
 
   /// List of all assets
   List<AssetGenImage> get values => [
+        baby,
         babyBottle,
         babyFour,
         babyOne,
@@ -77,8 +81,37 @@ class $AssetsSvgGen {
   SvgGenImage get appIconText =>
       const SvgGenImage('assets/svg/app_icon_text.svg');
 
+  /// File path: assets/svg/arrow_left.svg
+  SvgGenImage get arrowLeft => const SvgGenImage('assets/svg/arrow_left.svg');
+
+  /// File path: assets/svg/chart.svg
+  SvgGenImage get chart => const SvgGenImage('assets/svg/chart.svg');
+
+  /// File path: assets/svg/daily_challenge.svg
+  SvgGenImage get dailyChallenge =>
+      const SvgGenImage('assets/svg/daily_challenge.svg');
+
+  /// File path: assets/svg/notification_outline.svg
+  SvgGenImage get notificationOutline =>
+      const SvgGenImage('assets/svg/notification_outline.svg');
+
+  /// File path: assets/svg/sun_fog.svg
+  SvgGenImage get sunFog => const SvgGenImage('assets/svg/sun_fog.svg');
+
+  /// File path: assets/svg/wifi_square.svg
+  SvgGenImage get wifiSquare => const SvgGenImage('assets/svg/wifi_square.svg');
+
   /// List of all assets
-  List<SvgGenImage> get values => [appIcon, appIconText];
+  List<SvgGenImage> get values => [
+        appIcon,
+        appIconText,
+        arrowLeft,
+        chart,
+        dailyChallenge,
+        notificationOutline,
+        sunFog,
+        wifiSquare
+      ];
 }
 
 class Assets {

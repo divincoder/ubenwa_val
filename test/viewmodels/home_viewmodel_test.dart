@@ -2,7 +2,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:mum_health/app/app.bottomsheets.dart';
 import 'package:mum_health/app/app.locator.dart';
-import 'package:mum_health/ui/common/app_strings.dart';
+import 'package:mum_health/generated/l10n.dart';
 import 'package:mum_health/ui/views/home/home_viewmodel.dart';
 
 import '../helpers/test_helpers.dart';
@@ -14,14 +14,6 @@ void main() {
     setUp(() => registerServices());
     tearDown(() => locator.reset());
 
-    group('incrementCounter -', () {
-      test('When called once should return  Counter is: 1', () {
-        final model = _getModel();
-        model.incrementCounter();
-        expect(model.counterLabel, 'Counter is: 1');
-      });
-    });
-
     group('showBottomSheet -', () {
       test('When called, should show custom bottom sheet using notice variant',
           () {
@@ -31,8 +23,8 @@ void main() {
         model.showBottomSheet();
         verify(bottomSheetService.showCustomSheet(
           variant: BottomSheetType.notice,
-          title: ksHomeBottomSheetTitle,
-          description: ksHomeBottomSheetDescription,
+          title: S.current.getStarted,
+          description: S.current.pleaseWaitWhileWeGatherBayData,
         ));
       });
     });
