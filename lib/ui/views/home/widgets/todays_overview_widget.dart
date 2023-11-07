@@ -11,8 +11,9 @@ class TodayOverviewContainer extends ViewModelWidget<HomeViewModel> {
 
   @override
   Widget build(BuildContext context, HomeViewModel viewModel) {
-    return SizedBox(
+    return Container(
       width: double.maxFinite,
+      padding: const EdgeInsets.symmetric(horizontal: 24),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

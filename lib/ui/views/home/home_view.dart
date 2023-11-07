@@ -19,7 +19,6 @@ class HomeView extends StackedView<HomeViewModel> {
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
-          padding: const EdgeInsets.symmetric(horizontal: 24),
           child: Column(
             children: [
               _appBar(),
@@ -36,7 +35,7 @@ class HomeView extends StackedView<HomeViewModel> {
   //All this can be custom widgets that can be customized and reused. Same applies to other widgets in the app that has universal usage
   _appBar() {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 0),
+      padding: const EdgeInsets.symmetric(horizontal: 24),
       child: Row(
         children: [
           GestureDetector(
@@ -53,10 +52,6 @@ class HomeView extends StackedView<HomeViewModel> {
         ],
       ),
     );
-  }
-
-  _todayOverviewContainer() {
-
   }
 
   @override
