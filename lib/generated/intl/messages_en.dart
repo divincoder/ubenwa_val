@@ -39,22 +39,22 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Next Predicted Cry"),
         "numberOfCryEpisode":
             MessageLookupByLibrary.simpleMessage("Number \nof Cry Episode"),
+        "onboardDescFour": MessageLookupByLibrary.simpleMessage(
+            "Reduce you baby crying time whilst getting your schedule back together by planning for time of cry activity and time of quite."),
+        "onboardDescOne": MessageLookupByLibrary.simpleMessage(
+            "Now you can understand a lot about your new born, buckle up for an experience you will always long for."),
+        "onboardDescThree": MessageLookupByLibrary.simpleMessage(
+            "Be your baby’s doctor by viewing great insight and analysis; you get to see how your baby cry activity varies in terms of duration and frequency to help you make good decisions"),
+        "onboardDescTwo": MessageLookupByLibrary.simpleMessage(
+            "Now with great feedbacks, you can understand a lot about your new born cry patter and prepare for common cry peak period."),
         "onboardHeadingFour":
             MessageLookupByLibrary.simpleMessage("Happy Mom\n Happy Home"),
+        "onboardHeadingOne": MessageLookupByLibrary.simpleMessage(
+            "Welcome to a New\n Mothering Experience"),
         "onboardHeadingThree":
             MessageLookupByLibrary.simpleMessage("Analytical Insight"),
         "onboardHeadingTwo":
             MessageLookupByLibrary.simpleMessage("A Cry with Meaning"),
-        "onboardingDesOne": MessageLookupByLibrary.simpleMessage(
-            "Now you can understand a lot about your new born, buckle up for an experience you will always long for."),
-        "onboardingDescFour": MessageLookupByLibrary.simpleMessage(
-            "Reduce you baby crying time whilst getting your schedule back together by planning for time of cry activity and time of quite."),
-        "onboardingDescThree": MessageLookupByLibrary.simpleMessage(
-            "Be your baby’s doctor by viewing great insight and analysis; you get to see how your baby cry activity varies in terms of duration and frequency to help you make good decisions"),
-        "onboardingDescTwo": MessageLookupByLibrary.simpleMessage(
-            "Now with great feedbacks, you can understand a lot about your new born cry patter and prepare for common cry peak period."),
-        "onboardingHeadingOne": MessageLookupByLibrary.simpleMessage(
-            "Welcome to a New Mothering Experience"),
         "pleaseWaitWhileWeGatherBayData": MessageLookupByLibrary.simpleMessage(
             "Please wait while we\ngather your Baby’s data..."),
         "previous": MessageLookupByLibrary.simpleMessage("Previous"),

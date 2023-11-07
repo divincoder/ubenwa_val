@@ -15,7 +15,7 @@ class StartupView extends StackedView<StartupViewModel> {
     Widget? child,
   ) {
     return Scaffold(
-      backgroundColor: kcPrimaryColor,
+      backgroundColor: AppColors.primary,
       body: Center(
         child: Assets.svg.appIconText.svg(),
       ),

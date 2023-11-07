@@ -50,21 +50,21 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
-  /// `Welcome to a New Mothering Experience`
-  String get onboardingHeadingOne {
+  /// `Welcome to a New\n Mothering Experience`
+  String get onboardHeadingOne {
     return Intl.message(
-      'Welcome to a New Mothering Experience',
-      name: 'onboardingHeadingOne',
+      'Welcome to a New\n Mothering Experience',
+      name: 'onboardHeadingOne',
       desc: '',
       args: [],
     );
   }
 
   /// `Now you can understand a lot about your new born, buckle up for an experience you will always long for.`
-  String get onboardingDesOne {
+  String get onboardDescOne {
     return Intl.message(
       'Now you can understand a lot about your new born, buckle up for an experience you will always long for.',
-      name: 'onboardingDesOne',
+      name: 'onboardDescOne',
       desc: '',
       args: [],
     );
@@ -81,10 +81,10 @@ class S {
   }
 
   /// `Now with great feedbacks, you can understand a lot about your new born cry patter and prepare for common cry peak period.`
-  String get onboardingDescTwo {
+  String get onboardDescTwo {
     return Intl.message(
       'Now with great feedbacks, you can understand a lot about your new born cry patter and prepare for common cry peak period.',
-      name: 'onboardingDescTwo',
+      name: 'onboardDescTwo',
       desc: '',
       args: [],
     );
@@ -101,10 +101,10 @@ class S {
   }
 
   /// `Be your baby’s doctor by viewing great insight and analysis; you get to see how your baby cry activity varies in terms of duration and frequency to help you make good decisions`
-  String get onboardingDescThree {
+  String get onboardDescThree {
     return Intl.message(
       'Be your baby’s doctor by viewing great insight and analysis; you get to see how your baby cry activity varies in terms of duration and frequency to help you make good decisions',
-      name: 'onboardingDescThree',
+      name: 'onboardDescThree',
       desc: '',
       args: [],
     );
@@ -121,10 +121,10 @@ class S {
   }
 
   /// `Reduce you baby crying time whilst getting your schedule back together by planning for time of cry activity and time of quite.`
-  String get onboardingDescFour {
+  String get onboardDescFour {
     return Intl.message(
       'Reduce you baby crying time whilst getting your schedule back together by planning for time of cry activity and time of quite.',
-      name: 'onboardingDescFour',
+      name: 'onboardDescFour',
       desc: '',
       args: [],
     );
