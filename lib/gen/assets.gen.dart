@@ -46,6 +46,9 @@ class $AssetsPngGen {
   /// File path: assets/png/mum_two.png
   AssetGenImage get mumTwo => const AssetGenImage('assets/png/mum_two.png');
 
+  /// File path: assets/png/pie_chart.png
+  AssetGenImage get pieChart => const AssetGenImage('assets/png/pie_chart.png');
+
   /// File path: assets/png/water_drop.png
   AssetGenImage get waterDrop =>
       const AssetGenImage('assets/png/water_drop.png');
@@ -66,6 +69,7 @@ class $AssetsPngGen {
         mumOne,
         mumThree,
         mumTwo,
+        pieChart,
         waterDrop,
         waterPool
       ];
@@ -95,6 +99,9 @@ class $AssetsSvgGen {
   SvgGenImage get notificationOutline =>
       const SvgGenImage('assets/svg/notification_outline.svg');
 
+  /// File path: assets/svg/star.svg
+  SvgGenImage get star => const SvgGenImage('assets/svg/star.svg');
+
   /// File path: assets/svg/sun_fog.svg
   SvgGenImage get sunFog => const SvgGenImage('assets/svg/sun_fog.svg');
 
@@ -109,6 +116,7 @@ class $AssetsSvgGen {
         chart,
         dailyChallenge,
         notificationOutline,
+        star,
         sunFog,
         wifiSquare
       ];

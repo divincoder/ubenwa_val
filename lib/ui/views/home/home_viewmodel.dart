@@ -9,6 +9,8 @@ class HomeViewModel extends BaseViewModel {
   final _dialogService = locator<DialogService>();
   final _bottomSheetService = locator<BottomSheetService>();
 
+  var nextPredictedCry = "12:40 - 14:30";
+
   void showDialog() {
     _dialogService.showCustomDialog(
       variant: DialogType.infoAlert,

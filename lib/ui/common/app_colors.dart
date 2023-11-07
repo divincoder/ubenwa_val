@@ -18,5 +18,10 @@ class AppColors {
   static const Color lightBlue = Color(0xffD5E0FE);
   static const Color lighterBlue = Color(0xffECD5FE);
   static const Color lightYellow = Color(0xffFEF5D5);
+  static const Color dailyChallengeBorder = Color(0xffB7B7B7);
+  static const Color dailyChallengeIconBg = Color(0xffFBE6B5);
+  static const Color whiteHalf = Color(0xffF9F9F9);
+  static const Color custard = Color(0xffFFBA18);
+  static const Color alarmBtn = Color(0xff2250C5);
 }
 

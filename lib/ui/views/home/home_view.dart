@@ -5,7 +5,7 @@ import 'package:stacked/stacked.dart';
 import 'package:mum_health/ui/common/app_colors.dart';
 import 'package:mum_health/ui/common/ui_helpers.dart';
 import 'home_viewmodel.dart';
-import 'widgets/todays_overview_widget.dart';
+import 'widgets/widgets.dart';
 
 class HomeView extends StackedView<HomeViewModel> {
   const HomeView({Key? key}) : super(key: key);
@@ -24,7 +24,16 @@ class HomeView extends StackedView<HomeViewModel> {
               _appBar(),
               const SizedBox(height: 20),
               const TodayOverviewContainer(),
+              const SizedBox(height: 25),
+              const HourlyBreakdownWidget(),
               const SizedBox(height: 20),
+              const Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  DailyChallengeWidget(),
+                  NextPredictedCryWidget()
+                ],
+              )
             ],
           ),
         ),

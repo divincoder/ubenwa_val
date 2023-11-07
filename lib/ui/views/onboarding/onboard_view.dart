@@ -1,5 +1,4 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:mum_health/gen/assets.gen.dart';
 import 'package:mum_health/generated/l10n.dart';
