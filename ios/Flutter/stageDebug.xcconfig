@@ -2,5 +2,5 @@
 
 FLUTTER_TARGET=lib/main_stage.dart
 ASSET_PREFIX=stage
-BUNDLE_NAME=Mum Health Stage
-BUNDLE_DISPLAY_NAME=Mum Health Stage
+BUNDLE_NAME=Ubenwa Val Stage
+BUNDLE_DISPLAY_NAME=Ubenwa Val Stage

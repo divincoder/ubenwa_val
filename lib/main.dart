@@ -7,6 +7,8 @@ import 'package:mum_health/app/app.locator.dart';
 import 'app.dart';
 
 FutureOr<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
   setupLocator();
   setupDialogUi();
   setupBottomSheetUi();

@@ -2,5 +2,5 @@
 
 FLUTTER_TARGET=lib/main_prod.dart
 ASSET_PREFIX=prod
-BUNDLE_NAME=Mum Health
-BUNDLE_DISPLAY_NAME=Mum Health
+BUNDLE_NAME=Ubenwa Val
+BUNDLE_DISPLAY_NAME=Ubenwa Val

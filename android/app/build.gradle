@@ -34,12 +34,12 @@ android {
         prod {
             dimension "flavor-type"
             applicationId "com.divincoder.mumhealth"
-            resValue "string", "app_name", "Mum Health"
+            resValue "string", "app_name", "Ubenwa Val"
         }
         stage {
             dimension "flavor-type"
             applicationId "com.divincoder.mumhealth.stage"
-            resValue "string", "app_name", "Mum Health Stage"
+            resValue "string", "app_name", "Ubenwa Val Stage"
         }
     }
 

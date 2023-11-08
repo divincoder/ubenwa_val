@@ -1,7 +1,7 @@
 flavors:
   prod:
     app:
-      name: "Mum Health"
+      name: "Ubenwa Val"
 
     android:
       applicationId: "com.divincoder.mumhealth"
@@ -9,7 +9,7 @@ flavors:
       bundleId: "com.divincoder.mumhealth"
   stage:
     app:
-      name: "Mum Health Stage"
+      name: "Ubenwa Val Stage"
 
     android:
       applicationId: "com.divincoder.mumhealth.stage"
