@@ -33,7 +33,9 @@ class NextPredictedCryWidget extends ViewModelWidget<HomeViewModel> {
             height: 24,
             width: 99,
             child: MaterialButton(
-              onPressed: () {},
+              onPressed: () {
+                viewModel.launchAlarmView();
+              },
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4.86)),
               color: Colors.white.withOpacity(0.71),
               textColor: AppColors.alarmBtn,

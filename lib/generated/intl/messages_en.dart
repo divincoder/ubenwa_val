@@ -27,6 +27,10 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "betterThanYesterday": m0,
+        "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
+        "cryAlert": MessageLookupByLibrary.simpleMessage("Cry Alert"),
+        "cryAlertDesc": MessageLookupByLibrary.simpleMessage(
+            "Baby should cry any moment from now"),
         "cryRecords": MessageLookupByLibrary.simpleMessage("Cry Records"),
         "cumulativeCryDuration":
             MessageLookupByLibrary.simpleMessage("Cumulative \nCry Duration"),
@@ -40,6 +44,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Are you sure you want to log out?"),
         "longestCryDuration":
             MessageLookupByLibrary.simpleMessage("Longest \nCry Duration"),
+        "loopAlarmAudio":
+            MessageLookupByLibrary.simpleMessage("Loop alarm audio"),
         "next": MessageLookupByLibrary.simpleMessage("Next"),
         "nextPredictedCry":
             MessageLookupByLibrary.simpleMessage("Next Predicted Cry"),
@@ -64,10 +70,17 @@ class MessageLookup extends MessageLookupByLibrary {
         "pleaseWaitWhileWeGatherBayData": MessageLookupByLibrary.simpleMessage(
             "Please wait while we\ngather your Baby’s data..."),
         "previous": MessageLookupByLibrary.simpleMessage("Previous"),
+        "save": MessageLookupByLibrary.simpleMessage("Save"),
         "setAlarm": MessageLookupByLibrary.simpleMessage("Set Alarm"),
         "showMeHow": MessageLookupByLibrary.simpleMessage("Show me How"),
+        "showNotification":
+            MessageLookupByLibrary.simpleMessage("Show notification"),
+        "showVolumeMax":
+            MessageLookupByLibrary.simpleMessage("System volume max"),
+        "sound": MessageLookupByLibrary.simpleMessage("Sound"),
         "todaysOverview":
             MessageLookupByLibrary.simpleMessage("Today\'s Overview"),
+        "vibrate": MessageLookupByLibrary.simpleMessage("Vibrate"),
         "worstThanYesterday": m1
       };
 }

@@ -1,3 +1,5 @@
+import 'package:alarm/alarm.dart';
+import 'package:flutter/material.dart';
 import 'package:mum_health/app/app.bottomsheets.dart';
 import 'package:mum_health/app/app.dialogs.dart';
 import 'package:mum_health/app/app.locator.dart';
@@ -5,10 +7,12 @@ import 'package:mum_health/app/app.router.dart';
 import 'package:mum_health/generated/l10n.dart';
 import 'package:mum_health/models/day_model.dart';
 import 'package:mum_health/models/time_model.dart';
+import 'package:mum_health/ui/views/home/create_alarm/create_alarm_view.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 
 class HomeViewModel extends BaseViewModel {
+  final context = StackedService.navigatorKey?.currentContext;
   final _dialogService = locator<DialogService>();
   final _bottomSheetService = locator<BottomSheetService>();
   final _navigationService = locator<NavigationService>();
@@ -59,23 +63,45 @@ class HomeViewModel extends BaseViewModel {
   ];
 
   late int _selectedMonthIndex;
+
   int get selectedMonthIndex => _selectedMonthIndex;
+
   set selectedMonthIndex(int value) {
     _selectedMonthIndex = value;
     notifyListeners();
   }
 
   late int _selectedDayIndex;
+
   int get selectedDayIndex => _selectedDayIndex;
+
   set selectedDayIndex(int value) {
     _selectedDayIndex = value;
     notifyListeners();
   }
 
-
   onReady() {
     _selectedMonthIndex = 5;
     _selectedDayIndex = 3;
+  }
+
+  launchAlarmView() async {
+    final res = await showModalBottomSheet<bool?>(
+        context: context!,
+        isScrollControlled: true,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10.0),
+        ),
+        builder: (context) {
+          return const FractionallySizedBox(
+            heightFactor: 0.93,
+            child: CreateAlarmView(),
+          );
+        });
+
+    if (res != null && res == true) {
+      //Load Alarms
+    }
   }
 
   void showLogOutDialog() {

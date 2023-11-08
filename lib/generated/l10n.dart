@@ -309,6 +309,96 @@ class S {
       args: [],
     );
   }
+
+  /// `Cry Alert`
+  String get cryAlert {
+    return Intl.message(
+      'Cry Alert',
+      name: 'cryAlert',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Baby should cry any moment from now`
+  String get cryAlertDesc {
+    return Intl.message(
+      'Baby should cry any moment from now',
+      name: 'cryAlertDesc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cancel`
+  String get cancel {
+    return Intl.message(
+      'Cancel',
+      name: 'cancel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Save`
+  String get save {
+    return Intl.message(
+      'Save',
+      name: 'save',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Loop alarm audio`
+  String get loopAlarmAudio {
+    return Intl.message(
+      'Loop alarm audio',
+      name: 'loopAlarmAudio',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Vibrate`
+  String get vibrate {
+    return Intl.message(
+      'Vibrate',
+      name: 'vibrate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `System volume max`
+  String get showVolumeMax {
+    return Intl.message(
+      'System volume max',
+      name: 'showVolumeMax',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Show notification`
+  String get showNotification {
+    return Intl.message(
+      'Show notification',
+      name: 'showNotification',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sound`
+  String get sound {
+    return Intl.message(
+      'Sound',
+      name: 'sound',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

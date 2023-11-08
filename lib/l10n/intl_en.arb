@@ -24,5 +24,14 @@
   "setAlarm": "Set Alarm",
   "todaysOverview": "Today's Overview",
   "logOut": "Log Out",
-  "logOutPrompt": "Are you sure you want to log out?"
+  "logOutPrompt": "Are you sure you want to log out?",
+  "cryAlert": "Cry Alert",
+  "cryAlertDesc": "Baby should cry any moment from now",
+  "cancel": "Cancel",
+  "save": "Save",
+  "loopAlarmAudio": "Loop alarm audio",
+  "vibrate": "Vibrate",
+  "showVolumeMax": "System volume max",
+  "showNotification": "Show notification",
+  "sound": "Sound"
 }
