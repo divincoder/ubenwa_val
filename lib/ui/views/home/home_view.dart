@@ -96,7 +96,7 @@ class HomeView extends StackedView<HomeViewModel> {
             itemBuilder: (BuildContext context, int index) {
               return InkWell(
                 onTap: () {
-                  viewModel.selectedMonthIndex = index;
+                  viewModel.selectedDayIndex = index;
                 },
                 child: Container(
                   margin: const EdgeInsets.symmetric(horizontal: 12),
@@ -104,25 +104,25 @@ class HomeView extends StackedView<HomeViewModel> {
                   width: 50,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(43.22),
-                    color: viewModel.selectedMonthIndex == index ? AppColors.primary : AppColors.dayBg
+                    color: viewModel.selectedDayIndex == index ? AppColors.primary : AppColors.dayBg
                   ),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       Text(viewModel.days[index].day,
                           style: TextStyle(
-                              color: viewModel.selectedMonthIndex == index
+                              color: viewModel.selectedDayIndex == index
                                   ? Colors.white
                                   : Colors.black.withOpacity(0.41),
                               fontSize: 12,
                               fontWeight: FontWeight.w300)),
                       Text(viewModel.days[index].date,
                           style: TextStyle(
-                              color: viewModel.selectedMonthIndex == index
+                              color: viewModel.selectedDayIndex == index
                                   ? Colors.white
                                   : Colors.black.withOpacity(0.41),
                               fontSize: 17,
-                              fontWeight: viewModel.selectedMonthIndex == index ? FontWeight.w700 : FontWeight.w400))
+                              fontWeight: viewModel.selectedDayIndex == index ? FontWeight.w700 : FontWeight.w400))
                     ],
                   ),
                 ),
