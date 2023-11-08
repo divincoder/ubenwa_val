@@ -25,5 +25,8 @@ class AppColors {
   static const Color custard = Color(0xffFFBA18);
   static const Color alarmBtn = Color(0xff2250C5);
   static const Color dayBg = Color(0xffEBEBEB);
+  static List<Color> gradient = [
+    const Color(0xFF07236B).withOpacity(0.9),
+    const Color(0xFF4476F6)
+  ];
 }
-
