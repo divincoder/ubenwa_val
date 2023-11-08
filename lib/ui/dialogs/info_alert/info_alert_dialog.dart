@@ -83,7 +83,7 @@ class InfoAlertDialog extends StackedView<InfoAlertDialogModel> {
                 width: double.infinity,
                 alignment: Alignment.center,
                 child: const Text(
-                  'Got it',
+                  'Yes',
                   style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,

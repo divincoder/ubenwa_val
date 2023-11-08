@@ -35,6 +35,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "getStarted": MessageLookupByLibrary.simpleMessage("Get Started"),
         "hourlyBreakdown":
             MessageLookupByLibrary.simpleMessage("Hourly Breakdown"),
+        "logOut": MessageLookupByLibrary.simpleMessage("Log Out"),
+        "logOutPrompt": MessageLookupByLibrary.simpleMessage(
+            "Are you sure you want to log out?"),
         "longestCryDuration":
             MessageLookupByLibrary.simpleMessage("Longest \nCry Duration"),
         "next": MessageLookupByLibrary.simpleMessage("Next"),

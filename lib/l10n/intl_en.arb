@@ -22,5 +22,7 @@
   "dailyChallenge": "Daily Challenge",
   "nextPredictedCry": "Next Predicted Cry",
   "setAlarm": "Set Alarm",
-  "todaysOverview": "Today's Overview"
+  "todaysOverview": "Today's Overview",
+  "logOut": "Log Out",
+  "logOutPrompt": "Are you sure you want to log out?"
 }

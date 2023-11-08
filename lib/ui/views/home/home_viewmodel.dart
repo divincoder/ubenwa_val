@@ -1,6 +1,7 @@
 import 'package:mum_health/app/app.bottomsheets.dart';
 import 'package:mum_health/app/app.dialogs.dart';
 import 'package:mum_health/app/app.locator.dart';
+import 'package:mum_health/app/app.router.dart';
 import 'package:mum_health/generated/l10n.dart';
 import 'package:mum_health/models/day_model.dart';
 import 'package:mum_health/models/time_model.dart';
@@ -10,6 +11,7 @@ import 'package:stacked_services/stacked_services.dart';
 class HomeViewModel extends BaseViewModel {
   final _dialogService = locator<DialogService>();
   final _bottomSheetService = locator<BottomSheetService>();
+  final _navigationService = locator<NavigationService>();
 
   var nextPredictedCry = "12:40 - 14:30";
   final months = [
@@ -76,11 +78,11 @@ class HomeViewModel extends BaseViewModel {
     _selectedDayIndex = 3;
   }
 
-  void showDialog() {
+  void showLogOutDialog() {
     _dialogService.showCustomDialog(
       variant: DialogType.infoAlert,
-      title: 'Hello Mum!',
-      description: 'How is your baby doing today?',
+      title: S.current.logOut,
+      description: S.current.logOutPrompt,
     );
   }
 
@@ -90,5 +92,9 @@ class HomeViewModel extends BaseViewModel {
       title: S.current.getStarted,
       description: S.current.pleaseWaitWhileWeGatherBayData,
     );
+  }
+
+  void logOut() {
+    _navigationService.clearStackAndShow(Routes.onboardingView);
   }
 }
