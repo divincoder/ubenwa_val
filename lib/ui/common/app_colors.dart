@@ -10,6 +10,7 @@ class AppColors {
   static const Color babyThreeBg = Color(0xffFBF2E9);
   static const Color defaultCarousel = Color(0xffD3DEFC);
   static const Color text = Color(0xff3A3A3A);
+  static const Color textSecondary = Color(0xff9A9A9A);
   static const Color defaultStateCTA = Color(0xff858585);
   static const Color notificationIndicator = Color(0xffFFB300);
   static const Color darkBlue = Color(0xff132C84);
@@ -23,5 +24,6 @@ class AppColors {
   static const Color whiteHalf = Color(0xffF9F9F9);
   static const Color custard = Color(0xffFFBA18);
   static const Color alarmBtn = Color(0xff2250C5);
+  static const Color dayBg = Color(0xffEBEBEB);
 }
 
