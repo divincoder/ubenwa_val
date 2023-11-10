@@ -18,7 +18,7 @@ class OnboardView extends ViewModelWidget<OnboardingViewModel> {
     final pageIndex = viewModel.currentPage;
 
     double angle = pi / 2; // Angle between baby positions
-    double radius = 150.0; // Distance of babies from the mother picture
+    double radius = 130.0; // Distance of babies from the mother picture
 
     return Container(
       color: Colors.transparent, // Change color or add background image as needed
@@ -26,8 +26,8 @@ class OnboardView extends ViewModelWidget<OnboardingViewModel> {
         children: [
           Positioned.fill(
               top: padding.top,
-              left: 30,
-              right: 30,
+              left: 24,
+              right: 24,
               child: Column(
                 children: [
                   Expanded(
@@ -35,41 +35,37 @@ class OnboardView extends ViewModelWidget<OnboardingViewModel> {
                       children: [
                         Center(
                           child: SizedBox(
-                              height: 200,
-                              width: 200,
+                              height: 180,
+                              width: 180,
                               child: Image.asset(_getMotherImageForIndex(
                                   viewModel.currentPage))),
                         ),
                         for (int i = 0; i < 4; i++)
-                          Center(
-                            child: Positioned(
-                              top: (pageIndex == 0 || pageIndex == 1)
-                                  ? 20
-                                  : null,
-                              bottom: (pageIndex == 2 || pageIndex == 3)
-                                  ? 20
-                                  : null,
-                              left: (pageIndex == 1 || pageIndex == 3)
-                                  ? 20
-                                  : null,
-                              right: (pageIndex == 0 || pageIndex == 2)
-                                  ? 20
-                                  : null,
-                              child: TweenAnimationBuilder<double>(
-                                tween: Tween(begin: 0.0, end: angle * i),
-                                duration: const Duration(milliseconds: 1000),
-                                builder: (context, value, child) {
-                                  return Transform.translate(
-                                    offset: getBabyOffset(value, radius),
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(3.0),
-                                      child: Center(
-                                        child: _getBabyImageForIndex(i),
-                                      ),
-                                    ),
-                                  );
-                                },
-                              ),
+                          Positioned(
+                            top: (pageIndex == 0 || pageIndex == 1)
+                                ? 150
+                                : null,
+                            bottom: (pageIndex == 2 || pageIndex == 3)
+                                ? 150
+                                : null,
+                            left: (pageIndex == 1 || pageIndex == 3)
+                                ? 150
+                                : null,
+                            right: (pageIndex == 0 || pageIndex == 2)
+                                ? 150
+                                : null,
+                            child: TweenAnimationBuilder<double>(
+                              tween: Tween(begin: 0.0, end: angle * i),
+                              duration: const Duration(milliseconds: 1000),
+                              builder: (context, value, child) {
+                                return Transform.translate(
+                                  offset: getBabyOffset(value, radius),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(3.0),
+                                    child: _getBabyImageForIndex(i),
+                                  ),
+                                );
+                              },
                             ),
                           ),
                       ],

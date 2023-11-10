@@ -12,7 +12,7 @@ FutureOr<void> main() async {
   setupLocator();
   setupDialogUi();
   setupBottomSheetUi();
-  await Alarm.init();
+  // await Alarm.init();
 
   runApp(const MyApp());
 }
