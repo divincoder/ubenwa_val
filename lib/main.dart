@@ -1,39 +1,18 @@
+import 'dart:async';
+import 'package:alarm/alarm.dart';
 import 'package:flutter/material.dart';
 import 'package:mum_health/app/app.bottomsheets.dart';
 import 'package:mum_health/app/app.dialogs.dart';
 import 'package:mum_health/app/app.locator.dart';
-import 'package:mum_health/app/app.router.dart';
-import 'package:mum_health/ui/common/app_colors.dart';
-import 'package:stacked_services/stacked_services.dart';
+import 'app.dart';
 
-void main() {
+FutureOr<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
   setupLocator();
   setupDialogUi();
   setupBottomSheetUi();
+  // await Alarm.init();
 
   runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: Theme.of(context).copyWith(
-        primaryColor: kcBackgroundColor,
-        focusColor: kcPrimaryColor,
-        textTheme: Theme.of(context).textTheme.apply(
-              bodyColor: Colors.black,
-            ),
-      ),
-      initialRoute: Routes.startupView,
-      onGenerateRoute: StackedRouter().onGenerateRoute,
-      navigatorKey: StackedService.navigatorKey,
-      navigatorObservers: [
-        StackedService.routeObserver,
-      ],
-    );
-  }
 }

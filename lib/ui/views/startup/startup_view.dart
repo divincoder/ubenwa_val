@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:mum_health/gen/assets.gen.dart';
+import 'package:mum_health/ui/common/app_colors.dart';
 import 'package:stacked/stacked.dart';
-import 'package:mum_health/ui/common/ui_helpers.dart';
-
 import 'startup_viewmodel.dart';
 
 class StartupView extends StackedView<StartupViewModel> {
@@ -14,32 +14,10 @@ class StartupView extends StackedView<StartupViewModel> {
     StartupViewModel viewModel,
     Widget? child,
   ) {
-    return const Scaffold(
+    return Scaffold(
+      backgroundColor: AppColors.primary,
       body: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text(
-              'STACKED',
-              style: TextStyle(fontSize: 40, fontWeight: FontWeight.w900),
-            ),
-            Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text('Loading ...', style: TextStyle(fontSize: 16)),
-                horizontalSpaceSmall,
-                SizedBox(
-                  width: 16,
-                  height: 16,
-                  child: CircularProgressIndicator(
-                    color: Colors.black,
-                    strokeWidth: 6,
-                  ),
-                )
-              ],
-            ),
-          ],
-        ),
+        child: Assets.svg.appIconText.svg(),
       ),
     );
   }

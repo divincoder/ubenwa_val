@@ -1,0 +1,17 @@
+flavors:
+  prod:
+    app:
+      name: "Ubenwa Val"
+
+    android:
+      applicationId: "com.divincoder.mumhealth"
+    ios:
+      bundleId: "com.divincoder.mumhealth"
+  stage:
+    app:
+      name: "Ubenwa Val Stage"
+
+    android:
+      applicationId: "com.divincoder.mumhealth.stage"
+    ios:
+      bundleId: "com.divincoder.mumhealth.stage"

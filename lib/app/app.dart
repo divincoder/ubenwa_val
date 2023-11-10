@@ -1,6 +1,7 @@
 import 'package:mum_health/ui/bottom_sheets/notice/notice_sheet.dart';
 import 'package:mum_health/ui/dialogs/info_alert/info_alert_dialog.dart';
 import 'package:mum_health/ui/views/home/home_view.dart';
+import 'package:mum_health/ui/views/onboarding/onboarding_view.dart';
 import 'package:mum_health/ui/views/startup/startup_view.dart';
 import 'package:stacked/stacked_annotations.dart';
 import 'package:stacked_services/stacked_services.dart';
@@ -8,8 +9,9 @@ import 'package:stacked_services/stacked_services.dart';
 
 @StackedApp(
   routes: [
-    MaterialRoute(page: HomeView),
+    MaterialRoute(page: OnboardingView),
     MaterialRoute(page: StartupView),
+    MaterialRoute(page: HomeView),
     // @stacked-route
   ],
   dependencies: [
