@@ -10,11 +10,12 @@ class OnboardingView extends StackedView<OnboardingViewModel> {
   @override
   Widget builder(BuildContext context, OnboardingViewModel viewModel, Widget? child) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: PageView(
+        physics: const NeverScrollableScrollPhysics(), //This was done because the transition via sliding is not smooth yet.
         controller: viewModel.pageController,
         onPageChanged: (int page) {
           viewModel.currentPage = page;
-          viewModel.viewOffset = viewModel.pageController.offset;
         },
         children: const [
           OnboardView(),

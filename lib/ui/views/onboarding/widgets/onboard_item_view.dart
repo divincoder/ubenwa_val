@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:mum_health/generated/l10n.dart';
 import 'package:mum_health/ui/common/app_colors.dart';
+import 'package:mum_health/ui/widgets/effects.dart';
 
 class OnboardItemView extends StatelessWidget {
   final int index;
   final int pageCount;
   final VoidCallback onGetStarted;
+  final ValueNotifier<double?>? notifier;
 
-  const OnboardItemView(this.index, {this.pageCount = 4, required this.onGetStarted, super.key});
+  const OnboardItemView(this.index, {required this.notifier, this.pageCount = 4, required this.onGetStarted, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,21 +17,29 @@ class OnboardItemView extends StatelessWidget {
       children: [
         _buildCarousel(),
         const SizedBox(height: 24),
-        Text(
-          _getTitleText(),
-          textAlign: TextAlign.center,
-          style: const TextStyle(
-              color: AppColors.text, fontSize: 22, fontWeight: FontWeight.w700),
+        ScaleEffect(
+          page: index,
+          notifier: notifier,
+          child: Text(
+            _getTitleText(),
+            textAlign: TextAlign.center,
+            style: const TextStyle(
+                color: AppColors.text, fontSize: 22, fontWeight: FontWeight.w700),
+          ),
         ),
         const SizedBox(height: 24),
-        Text(
-          _getSubtitleText(),
-          textAlign: TextAlign.center,
-          style: const TextStyle(
-              color: Colors.black,
-              fontSize: 14,
-              height: 1.5,
-              fontWeight: FontWeight.w300),
+        ScaleEffect(
+          page: index,
+          notifier: notifier,
+          child: Text(
+            _getSubtitleText(),
+            textAlign: TextAlign.center,
+            style: const TextStyle(
+                color: Colors.black,
+                fontSize: 14,
+                height: 1.5,
+                fontWeight: FontWeight.w300),
+          ),
         ),
         const SizedBox(height: 24),
 

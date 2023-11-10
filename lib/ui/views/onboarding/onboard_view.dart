@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:mum_health/gen/assets.gen.dart';
 import 'package:mum_health/generated/l10n.dart';
 import 'package:mum_health/ui/common/app_colors.dart';
-import 'package:mum_health/ui/views/onboarding/onboard_item_view.dart';
+import 'package:mum_health/ui/views/onboarding/widgets/onboard_item_view.dart';
 import 'package:mum_health/ui/views/onboarding/onboard_viewmodel.dart';
+
 import 'package:stacked/stacked.dart';
 
 class OnboardView extends ViewModelWidget<OnboardingViewModel> {
@@ -15,13 +16,12 @@ class OnboardView extends ViewModelWidget<OnboardingViewModel> {
     final size = MediaQuery.of(context).size;
     final padding = MediaQuery.of(context).padding;
     final pageIndex = viewModel.currentPage;
-    final viewOffset = viewModel.viewOffset;
 
-    double angle = 2 * pi / 4; // Angle between baby positions
+    double angle = pi / 2; // Angle between baby positions
     double radius = 150.0; // Distance of babies from the mother picture
 
     return Container(
-      color: Colors.white, // Change color or add background image as needed
+      color: Colors.transparent, // Change color or add background image as needed
       child: Stack(
         children: [
           Positioned.fill(
@@ -56,16 +56,16 @@ class OnboardView extends ViewModelWidget<OnboardingViewModel> {
                                   ? 20
                                   : null,
                               child: TweenAnimationBuilder<double>(
-                                tween: Tween(begin: 0.0, end: (2 * pi * i) / 4),
-                                duration: const Duration(milliseconds: 500),
+                                tween: Tween(begin: 0.0, end: angle * i),
+                                duration: const Duration(milliseconds: 1000),
                                 builder: (context, value, child) {
                                   return Transform.translate(
-                                    offset: getBabyOffset(value, 100.0),
-                                    // 100.0 is the radius
-                                    child: Image.asset(
-                                      _getBabyImageForIndex(i),
-                                      width: 40,
-                                      height: 40,
+                                    offset: getBabyOffset(value, radius),
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(3.0),
+                                      child: Center(
+                                        child: _getBabyImageForIndex(i),
+                                      ),
                                     ),
                                   );
                                 },
@@ -77,6 +77,7 @@ class OnboardView extends ViewModelWidget<OnboardingViewModel> {
                   ),
                   Expanded(
                       child: OnboardItemView(viewModel.currentPage,
+                          notifier: viewModel.pageScrollPositionNotifier,
                           onGetStarted: () {
                     viewModel.gotoHomeView();
                   }))
@@ -144,7 +145,7 @@ class OnboardView extends ViewModelWidget<OnboardingViewModel> {
     return Offset(x, y);
   }
 
-  String _getBabyImageForIndex(int index) {
+  Widget _getBabyImageForIndex(int index) {
     List<String> babyImages = [
       Assets.png.babyOne.path,
       Assets.png.babyTwo.path,
@@ -152,7 +153,23 @@ class OnboardView extends ViewModelWidget<OnboardingViewModel> {
       Assets.png.babyFour.path,
     ];
 
-    return babyImages[index];
+    return Container(
+      decoration:
+          BoxDecoration(color: _getBabyBG(index), shape: BoxShape.circle),
+      padding: const EdgeInsets.all(5.0),
+      child: Image.asset(babyImages[index], width: 40, height: 40,),
+    );
+  }
+
+  Color _getBabyBG(int index) {
+    List<Color> babyImageBG = [
+      AppColors.babyOneBg,
+      AppColors.babyTwoBg,
+      AppColors.babyThreeBg,
+      AppColors.babyFourBg,
+    ];
+
+    return babyImageBG[index];
   }
 
   String _getMotherImageForIndex(int index) {

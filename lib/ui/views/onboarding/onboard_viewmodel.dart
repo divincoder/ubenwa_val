@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:mum_health/app/app.router.dart';
 import 'package:mum_health/ui/views/home/widgets/loading_view.dart';
@@ -6,19 +8,11 @@ import 'package:stacked_services/stacked_services.dart';
 
 class OnboardingViewModel extends BaseViewModel {
   final _navigationService = NavigationService();
+  final ValueNotifier<double?> pageScrollPositionNotifier = ValueNotifier(0);
 
   final PageController _pageController = PageController(initialPage: 0);
 
   PageController get pageController => _pageController;
-
-  double _viewOffset = 0.0;
-
-  double get viewOffset => _viewOffset;
-
-  set viewOffset(double value) {
-    _viewOffset = value;
-    notifyListeners();
-  }
 
   int _currentPage = 0;
 
@@ -29,7 +23,11 @@ class OnboardingViewModel extends BaseViewModel {
     notifyListeners();
   }
 
-  onReady() {}
+  onReady() {
+    _pageController.addListener(() {
+      pageScrollPositionNotifier.value = _pageController.page;
+    });
+  }
 
   onDispose() {
     _pageController.dispose();
