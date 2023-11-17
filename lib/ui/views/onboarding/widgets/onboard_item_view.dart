@@ -1,27 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:mum_health/generated/l10n.dart';
+import 'package:mum_health/models/onboarding_model.dart';
 import 'package:mum_health/ui/common/app_colors.dart';
+import 'package:mum_health/ui/views/onboarding/onboard_viewmodel.dart';
 import 'package:mum_health/ui/widgets/effects.dart';
+import 'package:stacked/stacked.dart';
 
-class OnboardItemView extends StatelessWidget {
-  final int index;
-  final int pageCount;
-  final VoidCallback onGetStarted;
-  final ValueNotifier<double?>? notifier;
-
-  const OnboardItemView(this.index, {required this.notifier, this.pageCount = 4, required this.onGetStarted, super.key});
+class OnboardItemView extends ViewModelWidget<OnboardingViewModel> {
+  const OnboardItemView({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, OnboardingViewModel viewModel) {
+    var onboardingModel = viewModel.onboardingModels[viewModel.currentPage];
+
     return Column(
       children: [
-        _buildCarousel(),
+        _buildCarousel(onboardingModel),
         const SizedBox(height: 24),
         ScaleEffect(
-          page: index,
-          notifier: notifier,
+          page: viewModel.currentPage,
+          notifier: viewModel.pageScrollPositionNotifier,
           child: Text(
-            _getTitleText(),
+            onboardingModel.title,
             textAlign: TextAlign.center,
             style: const TextStyle(
                 color: AppColors.text, fontSize: 22, fontWeight: FontWeight.w700),
@@ -29,10 +29,10 @@ class OnboardItemView extends StatelessWidget {
         ),
         const SizedBox(height: 24),
         ScaleEffect(
-          page: index,
-          notifier: notifier,
+          page: viewModel.currentPage,
+          notifier: viewModel.pageScrollPositionNotifier,
           child: Text(
-            _getSubtitleText(),
+            onboardingModel.desc,
             textAlign: TextAlign.center,
             style: const TextStyle(
                 color: Colors.black,
@@ -43,9 +43,9 @@ class OnboardItemView extends StatelessWidget {
         ),
         const SizedBox(height: 24),
 
-        if(index == pageCount - 1)
+        if(viewModel.currentPage == viewModel.onboardingModels.length - 1)
           MaterialButton(
-          onPressed: onGetStarted,
+          onPressed: viewModel.gotoHomeView,
           minWidth: double.maxFinite,
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
@@ -64,19 +64,19 @@ class OnboardItemView extends StatelessWidget {
     );
   }
 
-  _buildCarousel() {
+  _buildCarousel(OnboardingModel onboardingModel) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        for (int i = 0; i < pageCount; i++)
+        for (int i = 0; i < 4; i++)
           Container(
-            width: index == i ? 15 : 6.0,
+            width: onboardingModel.index == i ? 15 : 6.0,
             height: 6.0,
             margin: const EdgeInsets.symmetric(vertical: 0.0, horizontal: 2.0),
             decoration: BoxDecoration(
-              borderRadius: i == index ? BorderRadius.circular(7) : null,
-              shape: i == index ? BoxShape.rectangle : BoxShape.circle,
-              color: i == index
+              borderRadius: i == onboardingModel.index ? BorderRadius.circular(7) : null,
+              shape: i == onboardingModel.index ? BoxShape.rectangle : BoxShape.circle,
+              color: i == onboardingModel.index
                   ? i % 2 == 0
                       ? AppColors.accentMainOne
                       : AppColors.primary
@@ -85,35 +85,5 @@ class OnboardItemView extends StatelessWidget {
           )
       ],
     );
-  }
-
-  _getTitleText() {
-    switch (index) {
-      case 0:
-        return S.current.onboardHeadingOne;
-      case 1:
-        return S.current.onboardHeadingTwo;
-      case 2:
-        return S.current.onboardHeadingThree;
-      case 3:
-        return S.current.onboardHeadingFour;
-      default:
-        return S.current.onboardHeadingOne;
-    }
-  }
-
-  _getSubtitleText() {
-    switch (index) {
-      case 0:
-        return S.current.onboardDescOne;
-      case 1:
-        return S.current.onboardDescTwo;
-      case 2:
-        return S.current.onboardDescThree;
-      case 3:
-        return S.current.onboardDescFour;
-      default:
-        return S.current.onboardDescOne;
-    }
   }
 }
