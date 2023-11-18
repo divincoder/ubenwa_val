@@ -132,3 +132,33 @@ class FadeEffect extends StatelessWidget {
     );
   }
 }
+
+class MyFadeIn extends StatefulWidget {
+  final Widget child;
+
+  const MyFadeIn({Key? key, required this.child}) : super(key: key);
+
+  @override
+  _MyFadeInState createState() => _MyFadeInState();
+}
+
+class _MyFadeInState extends State<MyFadeIn> with TickerProviderStateMixin {
+  late final AnimationController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      duration: const Duration(milliseconds: 800),
+      vsync: this,
+    )..forward();  // Start the fade-in on initState.
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return FadeTransition(
+      opacity: _controller,
+      child: widget.child,
+    );
+  }
+}

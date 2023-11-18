@@ -116,7 +116,7 @@ class _OnboardingViewState extends State<OnboardingView>
                         visible: viewModel.currentPage != 0,
                         child: InkWell(
                           onTap: () {
-                            _rotatePictures(true);
+                            _rotatePictures(true); // Rotate clockwise
                             viewModel.prevModel();
                           },
                           child: Text(
@@ -132,7 +132,7 @@ class _OnboardingViewState extends State<OnboardingView>
                         visible: viewModel.currentPage != 3,
                         child: InkWell(
                           onTap: () {
-                            _rotatePictures(false);
+                            _rotatePictures(false);  // Rotate counterclockwise
                             viewModel.nextModel();
                           },
                           child: Text(
