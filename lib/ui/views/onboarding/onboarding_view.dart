@@ -46,7 +46,7 @@ class _OnboardingViewState extends State<OnboardingView>
     // Initialize animation controller
     _controller = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 500),
+      duration: const Duration(milliseconds: 800),
     );
 
     // Initialize animation
@@ -172,10 +172,11 @@ class _OnboardingViewState extends State<OnboardingView>
       curve: Curves.easeInOut,
     ));
 
-    updateCurrentPos(clockwise);
-
     // Start the animation
     _controller.forward(from: 0.0);
+
+    //update the BG color of the focus baby
+    updateCurrentPos(clockwise);
   }
 
   updateCurrentPos(bool clockwise) {
@@ -194,10 +195,10 @@ class _OnboardingViewState extends State<OnboardingView>
   Widget _getBabyImageForIndex(int index) {
     debugPrint("index: $index");
     List<String> babyImages = [
-      Assets.png.babyOne.path,
       Assets.png.babyTwo.path,
       Assets.png.babyThree.path,
       Assets.png.babyFour.path,
+      Assets.png.babyOne.path,
     ];
 
     return Container(
@@ -215,10 +216,10 @@ class _OnboardingViewState extends State<OnboardingView>
 
   Color _getBabyBG(int index) {
     List<Color> babyImageBG = [
-      AppColors.babyOneBg,
       AppColors.babyTwoBg,
       AppColors.babyThreeBg,
       AppColors.babyFourBg,
+      AppColors.babyOneBg,
     ];
 
     if (index == currentPos) {
